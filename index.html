@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buckshot Probability Computer</title>
+  
+  <!-- Retro Monospace Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/script.js"></script>
+
+</head>
+<body>
+
+  <div class="terminal-container">
+    <h1>> Chamber_Scanner_v1.3</h1>
+
+    <div class="shell-display" id="shellContainer"></div>
+
+    <!-- LIVE CONTROL SECTION -->
+    <div class="control-row live">
+      <div class="control-top">
+        <div class="control-label live-text">LIVE</div>
+        <div class="stepper">
+          <button class="btn-step" onclick="updateCount('live', -1)">-</button>
+          <input type="number" id="live" value="4" min="0" max="8" onchange="manualInput('live')">
+          <button class="btn-step" onclick="updateCount('live', 1)">+</button>
+        </div>
+      </div>
+      <div class="quick-select">
+        <button class="btn-quick" onclick="setCount('live', 1)">1</button>
+        <button class="btn-quick" onclick="setCount('live', 2)">2</button>
+        <button class="btn-quick" onclick="setCount('live', 3)">3</button>
+        <button class="btn-quick" onclick="setCount('live', 4)">4</button>
+        <button class="btn-quick" onclick="setCount('live', 5)">5</button>
+      </div>
+    </div>
+
+    <!-- BLANK CONTROL SECTION -->
+    <div class="control-row blank">
+      <div class="control-top">
+        <div class="control-label blank-text">BLANK</div>
+        <div class="stepper">
+          <button class="btn-step" onclick="updateCount('blank', -1)">-</button>
+          <input type="number" id="blank" value="4" min="0" max="8" onchange="manualInput('blank')">
+          <button class="btn-step" onclick="updateCount('blank', 1)">+</button>
+        </div>
+      </div>
+      <div class="quick-select">
+        <button class="btn-quick" onclick="setCount('blank', 1)">1</button>
+        <button class="btn-quick" onclick="setCount('blank', 2)">2</button>
+        <button class="btn-quick" onclick="setCount('blank', 3)">3</button>
+        <button class="btn-quick" onclick="setCount('blank', 4)">4</button>
+        <button class="btn-quick" onclick="setCount('blank', 5)">5</button>
+      </div>
+    </div>
+
+    <div class="results">
+      <div class="stat-box">
+        <div class="live-text">ODDS [LIVE]</div>
+        <div class="stat-value live-text" id="livePercent">0%</div>
+      </div>
+      <div class="stat-box">
+        <div class="blank-text">ODDS [BLANK]</div>
+        <div class="stat-value blank-text" id="blankPercent">0%</div>
+      </div>
+      <div class="status-msg" id="statusMessage">Total Shells: 8</div>
+    </div>
+
+    <button class="btn-reset" onclick="reset()">[ RESET_CHAMBER ]</button>
+  </div>
+</body>
+</html>
